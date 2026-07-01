@@ -3,7 +3,7 @@
 Официальная документация для разработчиков ресурсов платформы Glubinka MP.
 
 ## Открыть документацию
-- [Главная страница](./docs/index.md)
+- [Главная страница]([./docs/index.md](https://glubinkamp.github.io/GlubinkaMP-Docs/))
 
 ## Разделы
 - [Events](./docs/Events.md)
