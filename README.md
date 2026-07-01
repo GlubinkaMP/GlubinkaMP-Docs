@@ -61,3 +61,39 @@
 ```csharp
 using GTANetworkServer;
 using GTANetworkShared;
+
+Это нормально и ожидаемо.
+```
+
+---
+
+## 📂 Структура документации
+
+docs/
+├── index.md
+├── Events.md
+├── Commands.md
+├── Players.md
+├── Vehicles.md
+├── World.md
+├── CEF_UI.md
+└── FAQ.md
+
+---
+
+## 🔗 Полезные ссылки
+Главная страница документации
+Events
+Commands
+Players
+Vehicles
+World
+CEF UI
+FAQ
+
+---
+
+© Glubinka MP
+Glubinka MP — мультиплеерная платформа для GTA V.
+
+Использование платформы, SDK и связанных материалов регулируется лицензией и правилами проекта Glubinka MP.
