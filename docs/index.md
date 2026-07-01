@@ -87,7 +87,6 @@ using GTANetworkShared;
 - [FAQ](https://glubinkamp.github.io/GlubinkaMP-Docs/FAQ.html)
 
 ## 🌐 Сайт документации
-Если GitHub Pages уже включён, документация доступна по адресу:
 
 **https://glubinkamp.github.io/GlubinkaMP-Docs/**
 
