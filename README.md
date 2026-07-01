@@ -61,14 +61,13 @@
 ```csharp
 using GTANetworkServer;
 using GTANetworkShared;
-
-Это нормально и ожидаемо.
 ```
+Это нормально и ожидаемо.
 
 ---
 
 ## 📂 Структура документации
-
+```
 docs/
 ├── index.md
 ├── Events.md
@@ -78,7 +77,7 @@ docs/
 ├── World.md
 ├── CEF_UI.md
 └── FAQ.md
-
+```
 ---
 
 ## 🔗 Полезные ссылки
