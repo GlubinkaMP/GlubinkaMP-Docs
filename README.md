@@ -91,7 +91,6 @@ docs/
 - [CEF UI](https://glubinkamp.github.io/GlubinkaMP-Docs/CEF_UI.html)
 - [FAQ](https://glubinkamp.github.io/GlubinkaMP-Docs/FAQ.html)
 
----
 
 © Glubinka MP
 Glubinka MP — мультиплеерная платформа для GTA V.
