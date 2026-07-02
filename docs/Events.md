@@ -10,7 +10,7 @@
 
 Событие — это момент, когда сервер сообщает твоему ресурсу, что что-то произошло.
 
-Например:
+#### Например:
 
 - подключился игрок
 - игрок умер
@@ -24,7 +24,7 @@
 
 ## Как подписаться на событие
 
-```csharp
+```
 using GTANetworkServer;
 using GTANetworkShared;
 
@@ -56,15 +56,16 @@ public class MyResource : Script
 
 ## Важные правила
 ### 1. Подписывайся на события только в конструкторе
-Правильно:
+#### Правильно:
 
 ```
 public MyResource()
 {
     API.onPlayerConnected += OnPlayerConnected;
 }
-Неправильно:
 ```
+#### Неправильно:
+
 ```
 private void OnResourceStart()
 {
@@ -83,8 +84,8 @@ private void OnResourceStart()
 - данных игрока и транспорта
 
 ## Быстрый список событий
-### Событие	Описание
 ```
+Событие	Описание
 onResourceStart	Запуск текущего ресурса
 onResourceStop	Остановка текущего ресурса
 onUpdate	Серверный тик
@@ -122,8 +123,8 @@ onPlayerModelChange	Игрок сменил модель
 onPlayerDetonateStickies	Игрок подорвал sticky bombs
 ```
 
-## События ресурса
-### onResourceStart
+# События ресурса
+## onResourceStart
 Когда срабатывает: при запуске текущего ресурса.
 
 #### Сигнатура:
@@ -142,7 +143,7 @@ private void OnResourceStart()
 }
 ```
 
-### onResourceStop
+## onResourceStop
 Когда срабатывает: при остановке текущего ресурса.
 
 #### Сигнатура:
@@ -164,7 +165,7 @@ private void OnResourceStop()
 ```
 ### После остановки ресурса его сущности обычно удаляются автоматически ядром.
 
-### onUpdate
+## onUpdate
 Когда срабатывает: очень часто, каждый тик сервера.
 
 #### Сигнатура:
@@ -218,7 +219,7 @@ private void OnChatMessage(Client player, string message, CancelEventArgs cancel
     API.consoleOutput("[CHAT] " + player.Name + ": " + message);
 }
 ```
-Пример с блокировкой сообщения:
+#### Пример с блокировкой сообщения:
 ```
 private void OnChatMessage(Client player, string message, CancelEventArgs cancel)
 {
@@ -369,15 +370,14 @@ private void OnPlayerDeath(Client player, NetHandle entityKiller, int weapon)
 }
 ```
 #### Параметры:
-
+```
 Параметр	Тип	Описание
 player	Client	Погибший игрок
 entityKiller	NetHandle	Кто убил
 weapon	int	Оружие, которым убили
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnPlayerDeath(Client player, NetHandle entityKiller, int weapon)
 {
     Client killer = API.getPlayerFromHandle(entityKiller);
@@ -391,332 +391,300 @@ private void OnPlayerDeath(Client player, NetHandle entityKiller, int weapon)
         API.sendChatMessageToAll("~r~💀 ~w~" + player.Name + " погиб.");
     }
 }
-onPlayerRespawn
+```
+## onPlayerRespawn
 Когда срабатывает: когда игрок возродился.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onPlayerRespawn += OnPlayerRespawn;
 
 private void OnPlayerRespawn(Client player)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnPlayerRespawn(Client player)
 {
     API.setPlayerArmor(player, 25);
     API.sendChatMessageToPlayer(player, "~g~Ты возродился.");
 }
-onPlayerHealthChange
+```
+## onPlayerHealthChange
 Когда срабатывает: когда изменяется здоровье игрока.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onPlayerHealthChange += OnPlayerHealthChange;
 
 private void OnPlayerHealthChange(Client player, int oldValue)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnPlayerHealthChange(Client player, int oldValue)
 {
     int newHealth = API.getPlayerHealth(player);
     API.consoleOutput(player.Name + ": HP " + oldValue + " -> " + newHealth);
 }
-onPlayerArmorChange
+```
+## onPlayerArmorChange
 Когда срабатывает: когда изменяется броня игрока.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onPlayerArmorChange += OnPlayerArmorChange;
 
 private void OnPlayerArmorChange(Client player, int oldValue)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnPlayerArmorChange(Client player, int oldValue)
 {
     int newArmor = API.getPlayerArmor(player);
     API.consoleOutput(player.Name + ": Armor " + oldValue + " -> " + newArmor);
 }
-onPlayerWeaponSwitch
+```
+## onPlayerWeaponSwitch
 Когда срабатывает: когда игрок меняет текущее оружие.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onPlayerWeaponSwitch += OnPlayerWeaponSwitch;
 
 private void OnPlayerWeaponSwitch(Client player, WeaponHash oldValue)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnPlayerWeaponSwitch(Client player, WeaponHash oldValue)
 {
     API.consoleOutput(player.Name + " сменил оружие с " + oldValue + " на " + player.CurrentWeapon);
 }
-onPlayerWeaponAmmoChange
+```
+## onPlayerWeaponAmmoChange
 Когда срабатывает: когда меняется количество патронов.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onPlayerWeaponAmmoChange += OnPlayerWeaponAmmoChange;
 
 private void OnPlayerWeaponAmmoChange(Client player, WeaponHash weapon, int oldValue)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnPlayerWeaponAmmoChange(Client player, WeaponHash weapon, int oldValue)
 {
     int newAmmo = API.getPlayerWeaponAmmo(player, weapon);
     API.consoleOutput(player.Name + ": " + weapon + " ammo " + oldValue + " -> " + newAmmo);
 }
-onPlayerModelChange
+```
+## onPlayerModelChange
 Когда срабатывает: когда игрок меняет модель персонажа.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onPlayerModelChange += OnPlayerModelChange;
 
 private void OnPlayerModelChange(Client player, int oldValue)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnPlayerModelChange(Client player, int oldValue)
 {
     API.consoleOutput(player.Name + " сменил модель. Старый hash: " + oldValue);
 }
-onPlayerDetonateStickies
+```
+## onPlayerDetonateStickies
 Когда срабатывает: когда игрок подрывает sticky bombs.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onPlayerDetonateStickies += OnPlayerDetonateStickies;
 
 private void OnPlayerDetonateStickies(Client player)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnPlayerDetonateStickies(Client player)
 {
     API.consoleOutput(player.Name + " подорвал sticky bombs.");
 }
-События транспорта
-onPlayerEnterVehicle
+```
+# События транспорта
+## onPlayerEnterVehicle
 Когда срабатывает: когда игрок садится в транспорт.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onPlayerEnterVehicle += OnPlayerEnterVehicle;
 
 private void OnPlayerEnterVehicle(Client player, NetHandle vehicle)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnPlayerEnterVehicle(Client player, NetHandle vehicle)
 {
     int seat = API.getPlayerVehicleSeat(player);
     API.consoleOutput(player.Name + " сел в транспорт. Seat: " + seat);
 }
-Для водителя seat обычно равно -1.
+```
+### Для водителя seat обычно равно -1.
 
-onPlayerExitVehicle
+## onPlayerExitVehicle
 Когда срабатывает: когда игрок выходит из транспорта.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onPlayerExitVehicle += OnPlayerExitVehicle;
 
 private void OnPlayerExitVehicle(Client player, NetHandle vehicle)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnPlayerExitVehicle(Client player, NetHandle vehicle)
 {
     API.consoleOutput(player.Name + " вышел из транспорта.");
 }
-onVehicleDeath
+```
+## onVehicleDeath
 Когда срабатывает: когда транспорт уничтожен.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onVehicleDeath += OnVehicleDeath;
 
 private void OnVehicleDeath(NetHandle vehicle)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnVehicleDeath(NetHandle vehicle)
 {
     API.consoleOutput("Транспорт уничтожен.");
 }
-onVehicleHealthChange
+```
+## onVehicleHealthChange
 Когда срабатывает: когда меняется здоровье транспорта.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onVehicleHealthChange += OnVehicleHealthChange;
 
 private void OnVehicleHealthChange(NetHandle vehicle, float oldValue)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnVehicleHealthChange(NetHandle vehicle, float oldValue)
 {
     float newHealth = API.getVehicleHealth(vehicle);
     API.consoleOutput("Vehicle health: " + oldValue + " -> " + newHealth);
 }
-onVehicleSirenToggle
+```
+## onVehicleSirenToggle
 Когда срабатывает: когда меняется состояние сирены.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onVehicleSirenToggle += OnVehicleSirenToggle;
 
 private void OnVehicleSirenToggle(NetHandle vehicle, bool oldValue)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnVehicleSirenToggle(NetHandle vehicle, bool oldValue)
 {
     bool current = API.getVehicleSirenState(vehicle);
     API.consoleOutput("Siren: " + oldValue + " -> " + current);
 }
-onVehicleDoorBreak
+```
+## onVehicleDoorBreak
 Когда срабатывает: когда у транспорта отламывается дверь.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onVehicleDoorBreak += OnVehicleDoorBreak;
 
 private void OnVehicleDoorBreak(NetHandle vehicle, int index)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnVehicleDoorBreak(NetHandle vehicle, int index)
 {
     API.consoleOutput("У транспорта отломалась дверь: " + index);
 }
-onVehicleWindowSmash
+```
+## onVehicleWindowSmash
 Когда срабатывает: когда у транспорта разбивается стекло.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onVehicleWindowSmash += OnVehicleWindowSmash;
 
 private void OnVehicleWindowSmash(NetHandle vehicle, int index)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnVehicleWindowSmash(NetHandle vehicle, int index)
 {
     API.consoleOutput("У транспорта разбилось стекло: " + index);
 }
-onVehicleTyreBurst
+```
+## onVehicleTyreBurst
 Когда срабатывает: когда у транспорта лопается колесо.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onVehicleTyreBurst += OnVehicleTyreBurst;
 
 private void OnVehicleTyreBurst(NetHandle vehicle, int index)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnVehicleTyreBurst(NetHandle vehicle, int index)
 {
     API.consoleOutput("У транспорта лопнуло колесо: " + index);
 }
-onVehicleTrailerChange
+```
+## onVehicleTrailerChange
 Когда срабатывает: когда меняется прицеп у транспорта.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onVehicleTrailerChange += OnVehicleTrailerChange;
 
 private void OnVehicleTrailerChange(NetHandle tower, NetHandle trailer)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnVehicleTrailerChange(NetHandle tower, NetHandle trailer)
 {
     if (trailer.IsNull)
@@ -724,84 +692,76 @@ private void OnVehicleTrailerChange(NetHandle tower, NetHandle trailer)
     else
         API.consoleOutput("Прицеп был подключён.");
 }
-События pickup и карты
-onPlayerPickup
+```
+# События pickup и карты
+## onPlayerPickup
 Когда срабатывает: когда игрок поднимает pickup.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onPlayerPickup += OnPlayerPickup;
 
 private void OnPlayerPickup(Client player, NetHandle pickupHandle)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnPlayerPickup(Client player, NetHandle pickupHandle)
 {
     API.sendChatMessageToPlayer(player, "~g~Ты поднял pickup.");
 }
-onPickupRespawn
+```
+## onPickupRespawn
 Когда срабатывает: когда pickup появляется заново.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onPickupRespawn += OnPickupRespawn;
 
 private void OnPickupRespawn(NetHandle pickupHandle)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnPickupRespawn(NetHandle pickupHandle)
 {
     API.consoleOutput("Pickup снова появился.");
 }
-onMapChange
+```
+## onMapChange
 Когда срабатывает: когда сервер меняет карту.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onMapChange += OnMapChange;
 
 private void OnMapChange(string mapName, XmlGroup map)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnMapChange(string mapName, XmlGroup map)
 {
     API.consoleOutput("Смена карты: " + mapName);
 }
-События ColShape
-onEntityEnterColShape
+```
+# События ColShape
+## onEntityEnterColShape
 Когда срабатывает: когда сущность входит в ColShape.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onEntityEnterColShape += OnEntityEnterColShape;
 
 private void OnEntityEnterColShape(ColShape colshape, NetHandle entity)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private ColShape _safeZone;
 
 public MyResource()
@@ -824,22 +784,20 @@ private void OnEntityEnterColShape(ColShape colshape, NetHandle entity)
 
     API.sendChatMessageToPlayer(player, "~g~Ты вошёл в зону.");
 }
-onEntityExitColShape
+```
+## onEntityExitColShape
 Когда срабатывает: когда сущность выходит из ColShape.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onEntityExitColShape += OnEntityExitColShape;
 
 private void OnEntityExitColShape(ColShape colshape, NetHandle entity)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnEntityExitColShape(ColShape colshape, NetHandle entity)
 {
     Client player = API.getPlayerFromHandle(entity);
@@ -847,90 +805,83 @@ private void OnEntityExitColShape(ColShape colshape, NetHandle entity)
 
     API.sendChatMessageToPlayer(player, "~r~Ты покинул зону.");
 }
-События данных и ресурсов
-onEntityDataChange
+```
+# События данных и ресурсов
+## onEntityDataChange
 Когда срабатывает: когда у сущности изменяются данные и сервер вызывает это событие.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onEntityDataChange += OnEntityDataChange;
 
 private void OnEntityDataChange(NetHandle entity, string key, object oldValue)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnEntityDataChange(NetHandle entity, string key, object oldValue)
 {
     API.consoleOutput("Entity data changed: " + key);
 }
-onServerResourceStart
+```
+## onServerResourceStart
 Когда срабатывает: когда на сервере запускается любой ресурс.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onServerResourceStart += OnServerResourceStart;
 
 private void OnServerResourceStart(string resourceName)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnServerResourceStart(string resourceName)
 {
     API.consoleOutput("Ресурс запущен: " + resourceName);
 }
-onServerResourceStop
+```
+## onServerResourceStop
 Когда срабатывает: когда на сервере останавливается любой ресурс.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onServerResourceStop += OnServerResourceStop;
 
 private void OnServerResourceStop(string resourceName)
 {
 }
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnServerResourceStop(string resourceName)
 {
     API.consoleOutput("Ресурс остановлен: " + resourceName);
 }
-События клиента
-onClientEventTrigger
+```
+# События клиента
+## onClientEventTrigger
 Когда срабатывает: когда клиент отправляет событие на сервер.
 
-Сигнатура:
-
-csharp
-
+#### Сигнатура:
+```
 API.onClientEventTrigger += OnClientEventTrigger;
 
 private void OnClientEventTrigger(Client player, string eventName, params object[] arguments)
 {
 }
-Параметры:
-
+```
+#### Параметры:
+```
 Параметр	Тип	Описание
 player	Client	Игрок
 eventName	string	Имя события
 arguments	object[]	Аргументы события
-Пример:
-
-csharp
-
+```
+#### Пример:
+```
 private void OnClientEventTrigger(Client player, string eventName, params object[] arguments)
 {
     API.consoleOutput("Client event: " + eventName);
@@ -945,11 +896,11 @@ private void OnClientEventTrigger(Client player, string eventName, params object
         API.consoleOutput(player.Name + " wants to buy " + itemName + " x" + amount);
     }
 }
-⚠️ Всегда проверяй arguments.Length, прежде чем брать arguments[0], arguments[1] и так далее.
+```
+### ⚠️ Всегда проверяй arguments.Length, прежде чем брать arguments[0], arguments[1] и так далее.
 
-Полный шаблон ресурса с основными событиями
-csharp
-
+# Полный шаблон ресурса с основными событиями
+```
 using System;
 using GTANetworkServer;
 using GTANetworkShared;
@@ -1037,49 +988,43 @@ public class MyResource : Script
         API.consoleOutput("[EVENT] " + player.Name + ": " + eventName);
     }
 }
-Частые ошибки
-Ошибка 1 — подписка не в конструкторе
-Неправильно:
-
-csharp
-
+```
+# Частые ошибки
+## Ошибка 1 — подписка не в конструкторе
+#### Неправильно:
+```
 private void OnResourceStart()
 {
     API.onPlayerConnected += OnPlayerConnected;
 }
-Правильно:
-
-csharp
-
+```
+#### Правильно:
+```
 public MyResource()
 {
     API.onPlayerConnected += OnPlayerConnected;
 }
-Ошибка 2 — нет проверки аргументов
-Неправильно:
-
-csharp
-
+```
+## Ошибка 2 — нет проверки аргументов
+#### Неправильно:
+```
 string item = arguments[0].ToString();
-Правильно:
-
-csharp
-
+```
+#### Правильно:
+```
 if (arguments == null || arguments.Length < 1) return;
 string item = arguments[0].ToString();
-Ошибка 3 — тяжёлый код в onUpdate
-Неправильно:
-
-csharp
-
+```
+## Ошибка 3 — тяжёлый код в onUpdate
+#### Неправильно:
+```
 private void OnUpdate()
 {
     // тяжёлый код каждый тик
 }
-Правильно:
-
-csharp
-
+```
+#### Правильно:
+```
 private DateTime _lastCheck = DateTime.Now;
 
 private void OnUpdate()
@@ -1089,19 +1034,25 @@ private void OnUpdate()
 
     // код раз в секунду
 }
-Ошибка 4 — нет проверки убийцы
-Неправильно:
-
-csharp
-
+```
+## Ошибка 4 — нет проверки убийцы
+#### Неправильно:
+```
 API.sendChatMessageToAll("Killed by " + API.getPlayerFromHandle(entityKiller).Name);
-Правильно:
-
-csharp
-
+```
+#### Правильно:
+```
 Client killer = API.getPlayerFromHandle(entityKiller);
 if (killer != null)
 {
     API.sendChatMessageToAll("Killed by " + killer.Name);
 }
+```
 
+# См. также
+- [Commands](https://glubinkamp.github.io/GlubinkaMP-Docs/Commands.html)
+- [Players](https://glubinkamp.github.io/GlubinkaMP-Docs/Players.html)
+- [Vehicles](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicles.html)
+- [World](https://glubinkamp.github.io/GlubinkaMP-Docs/World.html)
+- [CEF UI](https://glubinkamp.github.io/GlubinkaMP-Docs/CEF_UI.html)
+- [FAQ](https://glubinkamp.github.io/GlubinkaMP-Docs/FAQ.html)
