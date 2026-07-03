@@ -67,7 +67,7 @@ docs/
 ├── index.md
 ├── Events.md
 ├── Commands.md
-├── Players.md
+├── Player.md
 ├── Vehicles.md
 ├── World.md
 ├── CEF_UI.md
