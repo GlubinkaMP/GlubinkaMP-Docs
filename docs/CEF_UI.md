@@ -858,7 +858,7 @@ body {
 
 - [Events](https://glubinkamp.github.io/GlubinkaMP-Docs/Events.html)
 - [Commands](https://glubinkamp.github.io/GlubinkaMP-Docs/Commands.html)
-- [Players](https://glubinkamp.github.io/GlubinkaMP-Docs/Players.html)
+- [Player](https://glubinkamp.github.io/GlubinkaMP-Docs/Player.html)
 - [Vehicles](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicles.html)
 - [World](https://glubinkamp.github.io/GlubinkaMP-Docs/World.html)
 - [FAQ](https://glubinkamp.github.io/GlubinkaMP-Docs/FAQ.html)
