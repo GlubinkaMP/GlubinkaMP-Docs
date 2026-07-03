@@ -1,4 +1,4 @@
-👤 # Players
+# Players
 
 Документация по работе с игроками в **Glubinka MP SDK**.
 
