@@ -20,15 +20,9 @@
 
 ### Как изменить порт сервера?
 
-Открой файл:
+Открой файл `settings.xml`, найди строку:
 
-```
-settings.xml
-```
-
-Найди строку:
-
-```
+```xml
 <port>4499</port>
 ```
 
@@ -38,15 +32,9 @@ settings.xml
 
 ### Как изменить название сервера?
 
-Открой файл:
+Открой файл `settings.xml`, найди строку:
 
-```
-settings.xml
-```
-
-Найди строку:
-
-```
+```xml
 <servername>Glubinka MP Server</servername>
 ```
 
@@ -56,21 +44,15 @@ settings.xml
 
 ### Как установить пароль на сервер?
 
-Открой файл:
+Открой файл `settings.xml`, найди строку:
 
-```
-settings.xml
-```
-
-Найди строку:
-
-```
+```xml
 <password></password>
 ```
 
-Впиши пароль между тегами:
+Впиши пароль:
 
-```
+```xml
 <password>mypassword123</password>
 ```
 
@@ -80,15 +62,9 @@ settings.xml
 
 ### Как изменить максимальное количество игроков?
 
-Открой файл:
+Открой файл `settings.xml`, найди строку:
 
-```
-settings.xml
-```
-
-Найди строку:
-
-```
+```xml
 <maxplayers>32</maxplayers>
 ```
 
@@ -98,12 +74,20 @@ settings.xml
 
 ### Где лежат логи сервера?
 
-Логи сервера обычно выводятся прямо в консоль.
+Логи выводятся прямо в консоль сервера.
 
-Также ты можешь писать свои логи через:
+Из своего ресурса ты можешь писать свои логи через `Logger`:
 
+```csharp
+var log = CreateLogger("MyResource");
+log.Info("Мой лог.");
 ```
-API.consoleOutput("Мой лог.");
+
+Или через быстрые методы `GlubinkaContext`:
+
+```csharp
+Log("Мой лог.");
+LogError("Ошибка!");
 ```
 
 ---
@@ -122,14 +106,14 @@ resources\мой_ресурс\
 
 2. Внутри создай два файла:
 
-```text
+```
 meta.xml
 мой_скрипт.cs
 ```
 
 3. В `meta.xml` напиши:
 
-```
+```xml
 <meta>
     <info name="Мой ресурс" version="1.0" author="Я" />
     <script src="мой_скрипт.cs" type="server" lang="csharp" />
@@ -140,7 +124,7 @@ meta.xml
 
 5. Открой файл `settings.xml` и добавь ресурс в список:
 
-```
+```xml
 <resource src="мой_ресурс" />
 ```
 
@@ -150,20 +134,20 @@ meta.xml
 
 ### Как перезагрузить ресурс без перезапуска сервера?
 
-Никак, консоль не поддерживает ввод текста
+Никак — консоль не поддерживает ввод текста. Нужно перезапустить сервер целиком.
 
 ---
 
 ### Ресурс не загружается. Что делать?
 
-Проверь:
-```
+Проверь следующее:
+
 1. Есть ли файл `meta.xml` в папке ресурса
 2. Правильно ли указан путь к скрипту в `meta.xml`
 3. Нет ли ошибок компиляции в консоли сервера
 4. Добавлен ли ресурс в `settings.xml`
 5. Правильно ли написано имя папки ресурса
-```
+
 ---
 
 ### Ошибка компиляции ресурса. Что делать?
@@ -174,22 +158,22 @@ meta.xml
 Error compiling resource "мой_ресурс": CS1002 ...
 ```
 
-Исправь ошибку в `.cs` файле и перезапусти ресурс.
+Исправь ошибку в `.cs` файле и перезапусти сервер.
 
 Частые причины:
-```
+
 - забыта точка с запятой `;`
 - не закрыта скобка `{` или `}`
 - неправильное имя метода или переменной
 - отсутствует `using GTANetworkServer;`
-```
+
 ---
 
 ### Можно ли использовать несколько файлов в одном ресурсе?
 
 Да. Добавь каждый файл в `meta.xml`:
 
-```
+```xml
 <meta>
     <info name="Мой ресурс" version="1.0" author="Я" />
     <script src="main.cs" type="server" lang="csharp" />
@@ -205,19 +189,19 @@ Error compiling resource "мой_ресурс": CS1002 ...
 ---
 
 ### Как подключиться к серверу?
-```
+
 1. Установи **GlubinkaMP-ClientRuntime**
 2. Запусти GTA V
 3. Дождись появления меню Glubinka MP
 4. Введи IP-адрес и порт сервера
 5. Нажми подключиться
-```
+
 ---
 
 ### Игра крашится при подключении. Что делать?
 
 Проверь:
-```
+
 1. Версия GTA V должна быть `1.0.2189.0`
 2. Script Hook V должен быть совместим с этой версией
 3. Файлы клиента должны лежать в правильных папках
@@ -229,154 +213,192 @@ Error compiling resource "мой_ресурс": CS1002 ...
    - `ScriptHookVDotNet.asi`
    - `ScriptHookVDotNet.dll`
 6. Папка `cef\` должна существовать и содержать `libcef.dll`
-```
+
 ---
 
 ### Меню не появляется после запуска игры. Что делать?
 
 Проверь:
-```
+
 1. Файл `ScriptHookVDotNet.asi` должен быть в корне GTA V
 2. Файл `ScriptHookVDotNet.dll` должен быть в корне GTA V
 3. Файл `dinput8.dll` должен быть в корне GTA V
 4. Файл `ScriptHookV.dll` должен быть в корне GTA V
 5. В папке `scripts\` должен быть файл `GlubinkaMP.dll`
-```
-Если всё на месте но меню не появляется:
-```
+
+Если всё на месте, но меню не появляется:
+
 - проверь файл `ScriptHookVDotNet.ini`
 - убедись что нет конфликтов с другими модами
-```
+
 ---
 
-## Код и API
+## Код и SDK
 
 ---
 
 ### Какие namespace использовать в ресурсе?
 
-```
+```csharp
+using GlubinkaMP.SDK;
 using GTANetworkServer;
 using GTANetworkShared;
 ```
-
-Это внутренние имена, оставленные для совместимости. Так и должно быть.
 
 ---
 
 ### Какой .NET Framework использовать?
 
+`.NET Framework 4.7.2`
+
+---
+
+### Как правильно создать ресурс?
+
+Наследуйся от `GlubinkaContext` и переопредели `OnStart`:
+
+```csharp
+using GlubinkaMP.SDK;
+using GTANetworkServer;
+using GTANetworkShared;
+
+public class MyResource : GlubinkaContext
+{
+    protected override void OnStart()
+    {
+        Log("Ресурс запущен!");
+    }
+}
 ```
-.NET Framework 4.7.2
-```
+
+Подробнее — в разделе [Getting Started](https://glubinkamp.github.io/GlubinkaMP-Docs/Getting-Started.html).
 
 ---
 
 ### Где подписываться на события?
 
-Только в конструкторе класса:
+Только в `OnStart` или в конструкторе класса:
 
-```
-public class MyResource : Script
+```csharp
+public class MyResource : GlubinkaContext
 {
-    public MyResource()
+    protected override void OnStart()
     {
-        API.onResourceStart += OnResourceStart;
+        API.onPlayerConnected += OnPlayerConnected;
     }
 
-    private void OnResourceStart()
+    private void OnPlayerConnected(Client client)
     {
+        var player = WrapPlayer(client);
+        player.SendMessage("~g~Добро пожаловать!");
     }
 }
 ```
 
-Не подписывайся на события внутри других методов.
+Не подписывайся на события внутри команд или других методов.
 
 ---
 
 ### Как отправить сообщение в чат?
 
-Одному игроку:
+Одному игроку — через `Player`:
 
-```
-API.sendChatMessageToPlayer(player, "~g~Привет!");
+```csharp
+player.SendMessage("~g~Привет!");
+player.SendSuccess("Операция выполнена.");
+player.SendError("Что-то пошло не так.");
 ```
 
-Всем:
+Всем — через `Chat`:
 
+```csharp
+Chat.SendToAll("~y~Объявление!");
+Chat.SendSuccessToAll("Сервер готов.");
 ```
-API.sendChatMessageToAll("~y~Объявление!");
-```
+
+Подробнее — в разделе [Chat](https://glubinkamp.github.io/GlubinkaMP-Docs/Chat.html).
 
 ---
 
 ### Как создать команду?
 
-```
-[Command("mycommand")]
-public void MyCommand(Client player)
+```csharp
+[Command("heal")]
+public void HealCommand(Client client)
 {
-    API.sendChatMessageToPlayer(player, "~g~Команда работает!");
+    var player = WrapPlayer(client);
+    player.SetHealth(100);
+    player.SendSuccess("Ты вылечен.");
 }
 ```
 
-Игрок вводит в чат:
+Игрок вводит в чат `/heal`.
 
-```
-/mycommand
-```
+Подробнее — в разделе [Commands](https://glubinkamp.github.io/GlubinkaMP-Docs/Commands.html).
 
 ---
 
 ### Как телепортировать игрока?
 
+```csharp
+player.Teleport(new Vector3(100f, 200f, 30f));
+// или
+player.Teleport(100f, 200f, 30f);
 ```
-API.setEntityPosition(player.handle, new Vector3(100f, 200f, 30f));
-```
+
+Подробнее — в разделе [Player](https://glubinkamp.github.io/GlubinkaMP-Docs/Player.html).
 
 ---
 
 ### Как создать транспорт?
 
+```csharp
+var car = CreateVehicle(VehicleHash.Adder, player.Position, new Vector3(0, 0, 0));
+player.PutIntoVehicle(car);
 ```
-API.createVehicle(VehicleHash.Adder, player.Position, new Vector3(0, 0, 0), 0, 0);
-```
+
+Подробнее — в разделе [Vehicle](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicles.html).
 
 ---
 
 ### Как выдать оружие?
 
+```csharp
+player.GiveWeapon(WeaponHash.Pistol, 100);
 ```
-API.givePlayerWeapon(player, WeaponHash.Pistol, 100, true, true);
-```
+
+Подробнее — в разделе [Player](https://glubinkamp.github.io/GlubinkaMP-Docs/Player.html).
 
 ---
 
 ### Как сменить погоду?
 
-```
-API.setWeather(1);
+```csharp
+World.SetWeather(WeatherType.Rain);
 ```
 
-Допустимые значения: от 0 до 13.
+Подробнее — в разделе [World](https://glubinkamp.github.io/GlubinkaMP-Docs/World.html).
 
 ---
 
 ### Как сменить время?
 
-```
-API.setTime(12, 0);
+```csharp
+World.SetTime(12, 0);   // 12:00
+World.SetNoon();        // быстрый пресет
 ```
 
-Первый параметр — часы (0-23), второй — минуты (0-59).
+Подробнее — в разделе [World](https://glubinkamp.github.io/GlubinkaMP-Docs/World.html).
 
 ---
 
 ### Как сменить скин игрока?
 
+```csharp
+player.SetSkin(PedHash.FreemodeMale01);
 ```
-API.setPlayerSkin(player, PedHash.FreemodeMale01);
-```
+
+Подробнее — в разделе [Player](https://glubinkamp.github.io/GlubinkaMP-Docs/Player.html).
 
 ---
 
@@ -384,26 +406,26 @@ API.setPlayerSkin(player, PedHash.FreemodeMale01);
 
 ---
 
-### Какие ID погоды доступны?
-```
-| ID | Погода |
-|---|---|
-| 0 | EXTRASUNNY |
-| 1 | CLEAR |
-| 2 | CLOUDS |
-| 3 | SMOG |
-| 4 | FOGGY |
-| 5 | OVERCAST |
-| 6 | RAIN |
-| 7 | THUNDER |
-| 8 | CLEARING |
-| 9 | NEUTRAL |
-| 10 | SNOW |
-| 11 | BLIZZARD |
-| 12 | SNOWLIGHT |
-| 13 | XMAS |
-```
-> ⚠️ Не используй значения больше 13. Это может вызвать проблемы.
+### Какие значения погоды доступны?
+
+| ID | Enum | Погода |
+|---|---|---|
+| 0 | `WeatherType.ExtraSunny` | Очень солнечно |
+| 1 | `WeatherType.Clear` | Ясно |
+| 2 | `WeatherType.Clouds` | Облачно |
+| 3 | `WeatherType.Smog` | Смог |
+| 4 | `WeatherType.Foggy` | Туман |
+| 5 | `WeatherType.Overcast` | Пасмурно |
+| 6 | `WeatherType.Rain` | Дождь |
+| 7 | `WeatherType.Thunder` | Гроза |
+| 8 | `WeatherType.Clearing` | Прояснение |
+| 9 | `WeatherType.Neutral` | Нейтральная |
+| 10 | `WeatherType.Snow` | Снег |
+| 11 | `WeatherType.Blizzard` | Метель |
+| 12 | `WeatherType.Snowlight` | Лёгкий снег |
+| 13 | `WeatherType.Xmas` | Рождественская |
+
+> Не используй значения больше `13`. Это может вызвать проблемы.
 
 ---
 
@@ -420,30 +442,30 @@ CEF 3.2987 / Chromium 57 (2017)
 ---
 
 ### Какие технологии поддерживаются в CEF?
-```
+
 - HTML5
 - CSS3 (включая flexbox)
 - JavaScript (ES6 базовый)
 - Локальные файлы
-```
+
 ---
 
 ### Чего нет в этой версии CEF?
-```
+
 - CSS Grid (частично)
 - ES2017+ (async/await могут не работать)
 - Современные Web API
-- Fetch API (используй XMLHttpRequest)
-```
+- Fetch API — используй `XMLHttpRequest`
+
 ---
 
 ### Какой стек рекомендуется для UI?
-```
+
 - HTML + CSS + vanilla JavaScript
 - Flexbox для вёрстки
 - Локальные файлы (без внешних CDN)
 - Минимум зависимостей
-```
+
 ---
 
 ## Разное
@@ -452,16 +474,16 @@ CEF 3.2987 / Chromium 57 (2017)
 
 ### Можно ли использовать базу данных?
 
-Да. Ты можешь подключить любую .NET-совместимую библиотеку для работы с БД:
-```
+Да. Ты можешь подключить любую .NET-совместимую библиотеку:
+
 - SQLite
-- MySQL (через MySqlConnector или MySql.Data)
+- MySQL (через `MySqlConnector` или `MySql.Data`)
 - LiteDB
 - JSON-файлы как простое хранилище
-```
+
 Добавь нужную DLL в папку ресурса и укажи в `meta.xml`:
 
-```
+```xml
 <reference src="MySql.Data.dll" />
 ```
 
@@ -471,7 +493,7 @@ CEF 3.2987 / Chromium 57 (2017)
 
 Да. Положи DLL в папку ресурса и добавь в `meta.xml`:
 
-```
+```xml
 <reference src="MyLibrary.dll" />
 ```
 
@@ -485,26 +507,21 @@ CEF 3.2987 / Chromium 57 (2017)
 resources\helloworld\
 ```
 
-Дополнительные примеры можно найти в документации:
-```
-- [Events](https://glubinkamp.github.io/GlubinkaMP-Docs/Events.html)
+Дополнительные примеры есть в документации:
+
+- [Getting Started](https://glubinkamp.github.io/GlubinkaMP-Docs/Getting-Started.html)
 - [Commands](https://glubinkamp.github.io/GlubinkaMP-Docs/Commands.html)
+- [Events](https://glubinkamp.github.io/GlubinkaMP-Docs/Events.html)
 - [Players](https://glubinkamp.github.io/GlubinkaMP-Docs/Players.html)
 - [Vehicles](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicles.html)
-```
+
 ---
 
 ### Как узнать хэш модели транспорта?
 
-Используй функцию:
+Используй готовый enum `VehicleHash`:
 
-```
-VehicleHash model = API.vehicleNameToModel("adder");
-```
-
-Или используй готовый enum `VehicleHash`:
-
-```
+```csharp
 VehicleHash model = VehicleHash.Adder;
 ```
 
@@ -512,13 +529,9 @@ VehicleHash model = VehicleHash.Adder;
 
 ### Как узнать хэш модели пешехода?
 
-```
-PedHash model = API.pedNameToModel("cop01sfy");
-```
+Используй готовый enum `PedHash`:
 
-Или:
-
-```
+```csharp
 PedHash model = PedHash.Cop01SFY;
 ```
 
@@ -526,20 +539,16 @@ PedHash model = PedHash.Cop01SFY;
 
 ### Как узнать хэш оружия?
 
-```
-WeaponHash weapon = API.weaponNameToModel("pistol");
-```
+Используй готовый enum `WeaponHash`:
 
-Или:
-
-```
+```csharp
 WeaponHash weapon = WeaponHash.Pistol;
 ```
 
 ---
 
 ## Цветовые коды для чата
-```
+
 | Код | Цвет |
 |---|---|
 | `~r~` | Красный |
@@ -549,15 +558,25 @@ WeaponHash weapon = WeaponHash.Pistol;
 | `~w~` | Белый |
 | `~p~` | Фиолетовый |
 | `~o~` | Оранжевый |
+
+Удобнее использовать константы `ChatColor`:
+
+```csharp
+player.SendMessage(ChatColor.Green + "Успех!");
+Chat.SendToAll(ChatColor.Yellow + "Объявление!");
 ```
+
+Подробнее — в разделе [Chat](https://glubinkamp.github.io/GlubinkaMP-Docs/Chat.html).
+
 ---
 
 ## См. также
-```
-- [Events](https://glubinkamp.github.io/GlubinkaMP-Docs/Events.html)
-- [Commands](https://glubinkamp.github.io/GlubinkaMP-Docs/Commands.html)
-- [Players](https://glubinkamp.github.io/GlubinkaMP-Docs/Players.html)
-- [Vehicles](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicles.html)
+
+- [Getting Started](https://glubinkamp.github.io/GlubinkaMP-Docs/Getting-Started.html)
+- [Player](https://glubinkamp.github.io/GlubinkaMP-Docs/Player.html)
+- [Vehicle](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicles.html)
 - [World](https://glubinkamp.github.io/GlubinkaMP-Docs/World.html)
+- [Chat](https://glubinkamp.github.io/GlubinkaMP-Docs/Chat.html)
+- [Commands](https://glubinkamp.github.io/GlubinkaMP-Docs/Commands.html)
+- [Events](https://glubinkamp.github.io/GlubinkaMP-Docs/Events.html)
 - [CEF UI](https://glubinkamp.github.io/GlubinkaMP-Docs/CEF_UI.html)
-```
