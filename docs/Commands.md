@@ -712,7 +712,7 @@ public void SetHpCommand(Client player, int hp)
 ## См. также
 
 - [Events](https://glubinkamp.github.io/GlubinkaMP-Docs/Events.html)
-- [Players](https://glubinkamp.github.io/GlubinkaMP-Docs/Players.html)
+- [Player](https://glubinkamp.github.io/GlubinkaMP-Docs/Player.html)
 - [Vehicles](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicles.html)
 - [World](https://glubinkamp.github.io/GlubinkaMP-Docs/World.html)
 - [CEF UI](https://glubinkamp.github.io/GlubinkaMP-Docs/CEF_UI.html)
