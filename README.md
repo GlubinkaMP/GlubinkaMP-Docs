@@ -16,14 +16,23 @@
 
 Если ты только начинаешь, открывай разделы в таком порядке:
 
-1. [Главная страница документации](./docs/index.md)
-2. [Events](./docs/Events.md)
-3. [Commands](./docs/Commands.md)
-4. [Player](./docs/Player.md)
-5. [Vehicles](./docs/Vehicles.md)
-6. [World](./docs/World.md)
-7. [CEF UI](./docs/CEF_UI.md)
-8. [FAQ](./docs/FAQ.md)
+1. [Getting Started](https://glubinkamp.github.io/GlubinkaMP-Docs/Getting-Started.html) — как создать первый ресурс
+2. [Player](https://glubinkamp.github.io/GlubinkaMP-Docs/Player.html) — работа с игроком
+3. [Players](https://glubinkamp.github.io/GlubinkaMP-Docs/Players.html) — работа со списком игроков
+4. [Vehicle](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicle.html) — работа с транспортом
+5. [World](https://glubinkamp.github.io/GlubinkaMP-Docs/World.html) — погода, время, данные мира
+6. [Chat](https://glubinkamp.github.io/GlubinkaMP-Docs/Chat.html) — сообщения и уведомления
+7. [Blip](https://glubinkamp.github.io/GlubinkaMP-Docs/Blip.html) — метки на карте
+8. [Marker](https://glubinkamp.github.io/GlubinkaMP-Docs/Marker.html) — 3D-маркеры
+9. [TextLabel](https://glubinkamp.github.io/GlubinkaMP-Docs/TextLabel.html) — 3D-текстовые метки
+10. [СolShape](https://glubinkamp.github.io/GlubinkaMP-Docs/СolShape.html) — невидимые зоны
+11. [Config](https://glubinkamp.github.io/GlubinkaMP-Docs/Config.html) — настройки ресурса
+12. [Logger](https://glubinkamp.github.io/GlubinkaMP-Docs/Logger.html) — логирование
+13. [Enums](https://glubinkamp.github.io/GlubinkaMP-Docs/Enums.html) — справочник enum'ов
+14. [Events](https://glubinkamp.github.io/GlubinkaMP-Docs/Events.html) — серверные события
+15. [Commands](https://glubinkamp.github.io/GlubinkaMP-Docs/Commands.html) — создание команд
+16. [CEF_UI](https://glubinkamp.github.io/GlubinkaMP-Docs/CEF_UI.html) — интерфейсы
+17. [FAQ](https://glubinkamp.github.io/GlubinkaMP-Docs/FAQ.html) — частые вопросы
 
 ---
 
@@ -78,12 +87,22 @@ docs/
 ## 🔗 Полезные ссылки
 
 - [Главная страница документации](https://glubinkamp.github.io/GlubinkaMP-Docs/)
+- [Getting Started](https://glubinkamp.github.io/GlubinkaMP-Docs/Getting-Started.html)
+- [Player](https://glubinkamp.github.io/GlubinkaMP-Docs/Player.html)
+- [Players](https://glubinkamp.github.io/GlubinkaMP-Docs/Players.html)
+- [Vehicle](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicle.html)
+- [World](https://glubinkamp.github.io/GlubinkaMP-Docs/World.html)
+- [Chat](https://glubinkamp.github.io/GlubinkaMP-Docs/Chat.html)
+- [Blip](https://glubinkamp.github.io/GlubinkaMP-Docs/Blip.html)
+- [Marker](https://glubinkamp.github.io/GlubinkaMP-Docs/Marker.html)
+- [TextLabel](https://glubinkamp.github.io/GlubinkaMP-Docs/TextLabel.html)
+- [СolShape](https://glubinkamp.github.io/GlubinkaMP-Docs/СolShape.html)
+- [Config](https://glubinkamp.github.io/GlubinkaMP-Docs/Config.html)
+- [Logger](https://glubinkamp.github.io/GlubinkaMP-Docs/Logger.html)
+- [Enums](https://glubinkamp.github.io/GlubinkaMP-Docs/Enums.html)
 - [Events](https://glubinkamp.github.io/GlubinkaMP-Docs/Events.html)
 - [Commands](https://glubinkamp.github.io/GlubinkaMP-Docs/Commands.html)
-- [Player](https://glubinkamp.github.io/GlubinkaMP-Docs/Player.html)
-- [Vehicles](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicles.html)
-- [World](https://glubinkamp.github.io/GlubinkaMP-Docs/World.html)
-- [CEF UI](https://glubinkamp.github.io/GlubinkaMP-Docs/CEF_UI.html)
+- [CEF_UI](https://glubinkamp.github.io/GlubinkaMP-Docs/CEF_UI.html)
 - [FAQ](https://glubinkamp.github.io/GlubinkaMP-Docs/FAQ.html)
 
 
