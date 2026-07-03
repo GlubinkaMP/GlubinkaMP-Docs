@@ -1051,7 +1051,7 @@ if (killer != null)
 
 # См. также
 - [Commands](https://glubinkamp.github.io/GlubinkaMP-Docs/Commands.html)
-- [Players](https://glubinkamp.github.io/GlubinkaMP-Docs/Players.html)
+- [Player](https://glubinkamp.github.io/GlubinkaMP-Docs/Player.html)
 - [Vehicles](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicles.html)
 - [World](https://glubinkamp.github.io/GlubinkaMP-Docs/World.html)
 - [CEF UI](https://glubinkamp.github.io/GlubinkaMP-Docs/CEF_UI.html)
