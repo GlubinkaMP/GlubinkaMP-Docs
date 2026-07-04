@@ -1,3 +1,8 @@
+---
+title: Vehicle
+nav_order: 4
+---
+
 # Vehicle
 
 Документация по работе с транспортом в **Glubinka MP SDK**.
