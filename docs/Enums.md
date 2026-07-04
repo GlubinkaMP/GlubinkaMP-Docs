@@ -1,3 +1,8 @@
+---
+title: Enums
+nav_order: 13
+---
+
 # Enums
 
 Общий справочник enum'ов в **Glubinka MP SDK**.
@@ -505,3 +510,21 @@ using GlubinkaMP.SDK;
 ---
 
 ## См. также
+
+- [Главная страница документации](https://glubinkamp.github.io/GlubinkaMP-Docs/)
+- [Getting Started](https://glubinkamp.github.io/GlubinkaMP-Docs/Getting-Started.html)
+- [Player](https://glubinkamp.github.io/GlubinkaMP-Docs/Player.html)
+- [Players](https://glubinkamp.github.io/GlubinkaMP-Docs/Players.html)
+- [Vehicle](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicle.html)
+- [World](https://glubinkamp.github.io/GlubinkaMP-Docs/World.html)
+- [Chat](https://glubinkamp.github.io/GlubinkaMP-Docs/Chat.html)
+- [Blip](https://glubinkamp.github.io/GlubinkaMP-Docs/Blip.html)
+- [Marker](https://glubinkamp.github.io/GlubinkaMP-Docs/Marker.html)
+- [TextLabel](https://glubinkamp.github.io/GlubinkaMP-Docs/TextLabel.html)
+- [СolShape](https://glubinkamp.github.io/GlubinkaMP-Docs/СolShape.html)
+- [Config](https://glubinkamp.github.io/GlubinkaMP-Docs/Config.html)
+- [Logger](https://glubinkamp.github.io/GlubinkaMP-Docs/Logger.html)
+- [Events](https://glubinkamp.github.io/GlubinkaMP-Docs/Events.html)
+- [Commands](https://glubinkamp.github.io/GlubinkaMP-Docs/Commands.html)
+- [CEF_UI](https://glubinkamp.github.io/GlubinkaMP-Docs/CEF_UI.html)
+- [FAQ](https://glubinkamp.github.io/GlubinkaMP-Docs/FAQ.html)
