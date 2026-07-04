@@ -1,3 +1,8 @@
+---
+title: Players
+nav_order: 3
+---
+
 # Players
 
 Документация по работе со списком игроков в **Glubinka MP SDK**.
