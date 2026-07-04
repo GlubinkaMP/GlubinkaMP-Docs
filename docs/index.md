@@ -1,16 +1,6 @@
-Это **главная страница документации** (`README.md` или `index.md`). Она нужна — это первое, что видит разработчик когда открывает документацию.
-
-Но её нужно **переписать** — сейчас там проблемы:
-
-- список разделов не включает новые SDK-файлы которые мы написали
-- раздел "С чего начать" устарел — теперь есть `getting-started.md`
-- раздел "Важно" про namespace немного устарел — теперь есть SDK
-- ссылки ведут на старые разделы, новых нет
-
 ---
-
-Переписываю целиком:
-
+title: Главная
+nav_order: 0
 ---
 
 # 📘 Glubinka MP — Документация для разработчиков
@@ -124,25 +114,21 @@ public class MyResource : GlubinkaContext
 
 - [Getting Started](https://glubinkamp.github.io/GlubinkaMP-Docs/Getting-Started.html)
 - [Player](https://glubinkamp.github.io/GlubinkaMP-Docs/Player.html)
-- [Vehicle](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicles.html)
+- [Players](https://glubinkamp.github.io/GlubinkaMP-Docs/Players.html)
+- [Vehicle](https://glubinkamp.github.io/GlubinkaMP-Docs/Vehicle.html)
 - [World](https://glubinkamp.github.io/GlubinkaMP-Docs/World.html)
 - [Chat](https://glubinkamp.github.io/GlubinkaMP-Docs/Chat.html)
 - [Blip](https://glubinkamp.github.io/GlubinkaMP-Docs/Blip.html)
 - [Marker](https://glubinkamp.github.io/GlubinkaMP-Docs/Marker.html)
 - [TextLabel](https://glubinkamp.github.io/GlubinkaMP-Docs/TextLabel.html)
-- [ColShape](https://glubinkamp.github.io/GlubinkaMP-Docs/ColShape.html)
-- [Logger](https://glubinkamp.github.io/GlubinkaMP-Docs/Logger.html)
+- [СolShape](https://glubinkamp.github.io/GlubinkaMP-Docs/СolShape.html)
 - [Config](https://glubinkamp.github.io/GlubinkaMP-Docs/Config.html)
+- [Logger](https://glubinkamp.github.io/GlubinkaMP-Docs/Logger.html)
 - [Enums](https://glubinkamp.github.io/GlubinkaMP-Docs/Enums.html)
 - [Events](https://glubinkamp.github.io/GlubinkaMP-Docs/Events.html)
 - [Commands](https://glubinkamp.github.io/GlubinkaMP-Docs/Commands.html)
+- [CEF_UI](https://glubinkamp.github.io/GlubinkaMP-Docs/CEF_UI.html)
 - [FAQ](https://glubinkamp.github.io/GlubinkaMP-Docs/FAQ.html)
-
----
-
-## 🌐 Сайт документации
-
-**https://glubinkamp.github.io/GlubinkaMP-Docs/**
 
 ---
 
