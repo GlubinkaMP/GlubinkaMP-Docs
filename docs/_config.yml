@@ -1,1 +1,11 @@
-theme: jekyll-theme-midnight
+title: Glubinka MP Documentation
+description: Официальная документация для разработчиков ресурсов Glubinka MP
+remote_theme: just-the-docs/just-the-docs
+color_scheme: dark
+search_enabled: true
+
+aux_links:
+  "GitHub":
+    - "https://github.com/glubinkamp/GlubinkaMP-Docs"
+
+heading_anchors: true
