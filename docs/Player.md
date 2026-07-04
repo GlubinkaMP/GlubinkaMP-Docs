@@ -1,3 +1,8 @@
+---
+title: Player
+nav_order: 2
+---
+
 # Player
 
 Документация по работе с игроками в **Glubinka MP SDK**.
