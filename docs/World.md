@@ -1,3 +1,8 @@
+---
+title: World
+nav_order: 5
+---
+
 # World
 
 Документация по управлению миром в **Glubinka MP SDK**.
