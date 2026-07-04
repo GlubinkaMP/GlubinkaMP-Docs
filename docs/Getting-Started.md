@@ -1,3 +1,8 @@
+---
+title: Getting Started
+nav_order: 1
+---
+
 # Getting Started
 
 Документация по началу работы с **Glubinka MP SDK**.
